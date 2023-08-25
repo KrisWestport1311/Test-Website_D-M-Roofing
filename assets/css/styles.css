@@ -10,13 +10,14 @@
   /*Color mode HSL(hue, saturation, lightness)*/
   --first-color: hsl(220, 68%, 54%);
   --first-color-lighten: hsl(220, 68%, 97%);
-  --title-color: hsl(220, 48%, 28%);
-  --text-color: hsl(220, 12%, 45%);
+  --title-color: #696b6aff;
+  --text-color: #696b6a;
   --body-color: hsl(220, 100%, 99%);
-  --primary-text-color: #183b56;
-  --secondary-text-color: #577592;
-  --accent-color: #2294ed;
-  --accent-color-dark: #1d69a3;
+  --primary-text-color: #696b6a;
+  --secondary-text-color: #696b6a;
+  --accent-color: #7ed2b3;
+  --accent-color-dark: #696b6a;
+  --background-color: #F4F7FC;
   /*========== Font and typography ==========*/
   /*.5rem = 8px | 1rem = 16px ...*/
   --body-font: "Poppins", sans-serif;
@@ -72,12 +73,16 @@ h2 {
 }
 
 h3 {
+  font-size: 2rem;
+}
+
+h4 {
   font-size: 1.5rem;
 }
 
 p {
   font-family: "Roboto", sans-serif;
-  font-size: 1.25rem;
+  font-size: 1.05rem;
   color: var(--secondary-text-color);
   line-height: 1.8rem;
   margin-bottom: 20px;
@@ -106,7 +111,7 @@ p {
 }
 
 .primary-button:hover {
-  background-color: var(--accent-color-dark);
+  background-color: var(--primary-text-color) !important ;
 }
 
 .secondary-button {
@@ -121,6 +126,7 @@ p {
 .secondary-button:hover {
   border-color: var(--accent-color);
   color: var(--accent-color) !important;
+  background-color: #fff !important;
 }
 
 /*=============== REUSABLE CSS CLASSES ===============*/
@@ -467,6 +473,49 @@ width:50px;
   width: 100%;
 }
 
+
+/* sideways */
+* {
+  box-sizing: border-box;
+  }
+  body {
+    padding: 0;
+    margin: 0;
+  }
+  .bumper {
+    width: 100%;
+    height: 0px;
+    background-color: #f3f3f3;
+    margin-top: 300px;
+  }
+  
+  .horizontal-section, .horizontal-section2 {
+    padding: 100px 0;
+    background-color: pink;
+  }
+  
+  .sticky-wrapper, .sticky-wrapper2 {
+    position: sticky;
+    top: 100px;
+    width: 100%;
+    overflow: hidden;
+    padding-left: 200px;
+  }
+  
+  .element-wrapper, .element-wrapper2 {
+    position: relative;
+    display: flex;
+  }
+  
+  .element {
+    width: 800px;
+    height: 400px;
+    background-color: purple;
+    margin: 0 20px 0 0;
+    flex-shrink: 0;
+  }
+
+
 /* companies section */
 
 .companies-header {
@@ -489,7 +538,8 @@ width:50px;
 
 .features-section {
   padding: 80px var(--padding-inline-section) 0;
-  background-image: url("https://assets-global.website-files.com/5af97a9c84ec1bc79d81b5f4/5af98b9f779b5a7d0a80351e_Oval%201.svg") !important;
+  background-color: var(--background-color);
+  /* background-image: url("https://assets-global.website-files.com/5af97a9c84ec1bc79d81b5f4/5af98b9f779b5a7d0a80351e_Oval%201.svg") !important; */
   background-repeat: no-repeat;
   background-position: center;
   background-size: 100% 100%;
@@ -524,6 +574,7 @@ display: flex;
   gap: 20px;
   max-width: 30%;
   text-align: center;
+  margin-bottom: 30px;
 }
 
 .features-card img {
@@ -629,7 +680,7 @@ display: flex;
 
 footer {
   padding-block: 80px;
-  background-color: #ebf2fa;
+  background-color: #696b6af;
 }
 
 .link-column {
@@ -779,4 +830,34 @@ footer {
   #footer_img {
     width: 250px;
   }
+}
+
+/* 
+----------------morph----------- */
+
+@keyframes morph {
+  0%,
+  100% {
+    border-radius: 40% 60% 70% 30% / 40% 40% 60% 50%;
+  }
+  34% {
+    border-radius: 70% 30% 50% 50% / 30% 30% 70% 70%;
+  }
+  67% {
+    border-radius: 100% 60% 60% 100% / 100% 100% 60% 60%;
+  }
+}
+
+#morph {
+  width: 520px;
+  height: 520px;
+  object-fit: cover;
+  animation: morph 6.5s linear infinite;
+}
+
+@media screen and (max-width: 767px){
+  #morph {
+    width: 320px;
+    height: 320px;    
+}
 }
